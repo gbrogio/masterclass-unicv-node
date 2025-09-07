@@ -48,9 +48,9 @@ sequelize/
   models/
     exit.model.ts # Modelo do exit
   seeders/
-    exit.seed.ts # Seed do exit
+    <timestamp>-<label>.js # Seed do exit
   migrations/
-    exit.migration.ts # Migration do exit
+    <timestamp>-<label>.js # Migration do exit
 src/
   app.ts           # Cria e configura o Express (JSON, rotas)
   routes.ts        # Registra módulos de rota na aplicação
