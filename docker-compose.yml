@@ -1,0 +1,46 @@
+services:
+  app:
+    container_name: masterclass-app
+    ports:
+      - ${PORT}:${PORT}
+    build:
+      context: .
+      dockerfile: Dockerfile.${NODE_ENV:-production}
+    env_file: .env
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - PORT=${PORT}
+    depends_on:
+      - postgres
+    networks:
+      - masterclass-network
+
+  postgres:
+    container_name: masterclass-postgres
+    image: postgres:17
+    env_file: .env
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    environment:
+      - POSTGRES_USER=${POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DATABASE}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USERNAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+    networks:
+      - masterclass-network
+
+networks:
+  masterclass-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
