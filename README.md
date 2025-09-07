@@ -47,6 +47,14 @@ npm start
 ### Estrutura de Pastas
 
 ```sh
+sequelize/
+  config.ts      # Configurações do banco de dados
+  models/
+    exit.model.ts # Modelo do exit
+  seeders/
+    <timestamp>-<label>.js # Seed do exit
+  migrations/
+    <timestamp>-<label>.js # Migration do exit
 src/
   app.ts           # Cria e configura o Express (JSON, rotas)
   routes.ts        # Registra módulos de rota na aplicação
