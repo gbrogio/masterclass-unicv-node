@@ -1,6 +1,10 @@
-## Masterclass API (Express + TypeScript)
+# Masterclass API (Express + TypeScript)
 
 Aplicação REST simples em Express 5 + TypeScript, estruturada em módulos. O projeto expõe um recurso de exemplo (`/exits`) para demonstrar uma arquitetura básica de serviços, controladores e roteamento.
+
+## Contexto
+
+O projeto é uma API RESTful que expõe um recurso de exemplo (`/exits`) para demonstrar uma arquitetura básica de serviços, controladores e roteamento.
 
 ### Requisitos
 
@@ -42,7 +46,7 @@ npm start
 
 ### Estrutura de Pastas
 
-```
+```sh
 sequelize/
   config.ts      # Configurações do banco de dados
   models/
