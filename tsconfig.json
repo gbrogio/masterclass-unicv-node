@@ -1,19 +1,27 @@
 {
   "compilerOptions": {
-    "lib": ["ES2023"],
+    "lib": [
+      "ES2023"
+    ],
     "module": "NodeNext",
     "target": "ES2023",
-
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "moduleResolution": "node16",
+    "isolatedModules": true,
 
     "paths": {
-      "@/*": ["./src*"],
-      "@/sequelize/*": ["./sequelize/*"],
-      "@/sequelize": ["./sequelize/index.ts"],
+      "@/*": [
+        "./src*"
+      ],
+      "@/sequelize/*": [
+        "./sequelize/*"
+      ],
+      "@/sequelize": [
+        "./sequelize/index.ts"
+      ],
     }
   }
 }

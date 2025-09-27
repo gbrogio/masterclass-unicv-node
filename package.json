@@ -7,7 +7,8 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "db:migrate": "sequelize-cli db:migrate",
-    "db:seed": "sequelize-cli db:seed"
+    "db:seed": "sequelize-cli db:seed",
+    "test": "jest"
   },
   "author": "Guilherme Brogio",
   "license": "ISC",
@@ -21,9 +22,13 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
+    "@jest/globals": "^30.1.2",
     "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
     "@types/node": "^24.3.1",
+    "jest": "^30.1.3",
     "sequelize-cli": "^6.6.3",
+    "ts-jest": "^29.4.4",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
