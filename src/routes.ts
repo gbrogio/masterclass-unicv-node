@@ -1,8 +1,11 @@
 import { type Express } from "express";
-import { ExitsModule } from "./modules/exits/exits.module";
+import { validarHeaders } from "./modules/webhook/util/validar-headers";
 
 export class Routes {
   constructor(app: Express) {
-    new ExitsModule(app);
+  
+    // app.use("/reenviar", validarHeaders, (req, res) => {
+    //   req.headers; // new Headers()
+    // });
   }
 }
