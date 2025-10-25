@@ -1,6 +1,7 @@
 import { Cedente } from "@/sequelize/models/cedente.model";
 import { SoftwareHouse } from "@/sequelize/models/software-house.model";
 import { validarHeaders } from "./validar-headers";
+import { foo } from "./foo";
 
 describe("/reenviar - validarHeaders", () => {
   const mockHeaders = new Headers({
@@ -11,6 +12,11 @@ describe("/reenviar - validarHeaders", () => {
   });
 
   it("deve retornar false se algum dos headers não forem enviados", async () => {
+    const HeaderEnviadaComoNull = await validarHeaders(
+      null,
+    );
+    expect(HeaderEnviadaComoNull).toBe(false);
+    
     const headersNenhumaHeaderEnviada = new Headers();
     const nenhumaHeaderEnviada = await validarHeaders(
       headersNenhumaHeaderEnviada,
@@ -58,6 +64,10 @@ describe("/reenviar - validarHeaders", () => {
     const headers = new Headers(mockHeaders);
     const isValid = await validarHeaders(headers);
     expect(isValid).toBe(false);
+  });
+
+  it("deve lançar se o foo for chamado com o valor 'bar'", async () => {
+    expect(() => foo("bar")).toThrow("bar is not allowed");
   });
 
   it("deve retornar false se o cnpj e token do cedente não estiver cadastrado", async () => {

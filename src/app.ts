@@ -2,7 +2,7 @@ import express, { type Express } from "express";
 import { Routes } from "./routes";
 
 export class App {
-  private server: Express;
+  public server: Express;
   constructor() {
     this.server = express();
     this.server.use(express.json());

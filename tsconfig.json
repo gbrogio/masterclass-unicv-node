@@ -14,7 +14,7 @@
 
     "paths": {
       "@/*": [
-        "./src*"
+        "./src/*"
       ],
       "@/sequelize/*": [
         "./sequelize/*"
